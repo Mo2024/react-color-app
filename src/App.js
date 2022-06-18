@@ -4,6 +4,7 @@ import './App.css'
 import { generatePalette } from './colorHelpers'
 import { Routes, Route } from 'react-router-dom';
 import { useCallback } from 'react';
+import PaletteList from "./PaletteList";
 
 
 function App() {
@@ -14,13 +15,8 @@ function App() {
   })
 
   return (
-    // <div className="App">
-    //   <Palette palette={generatePalette(seedColors[4])} />
-
-
-    // </div>
     <Routes>
-      <Route exact path="/" element={<h1>Main Menu</h1>} />
+      <Route exact path="/" element={<PaletteList palettes={seedColors} />} />
       <Route exact path="/palette/:id" element={<Palette getPalette={getPalette} />} />
       {/* <Route exact path='*' element={<Error />} /> */}
     </Routes>

@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './Navbar.css'
 import Select from '@material-ui/core/Select';
 import { IconButton, MenuItem } from '@material-ui/core';
 import Snackbar from '@mui/material/Snackbar';
 import { Close } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 function Navbar(props) {
     const [format, setFormat] = useState('hex')
@@ -23,7 +24,7 @@ function Navbar(props) {
     return (
         <header className='Navbar'>
             <div className='logo'>
-                <a href='#'>Color App</a>
+                <Link to='/'>Color App</Link>
             </div>
             <div className='slider-container'>
                 <span>Level {props.level}</span>
