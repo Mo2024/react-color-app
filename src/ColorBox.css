@@ -2,10 +2,10 @@
     width: 20%;
     height: 25%;
     margin: 0 auto;
-    position: relative;
     display: inline-block;
+    position: relative;
+    cursor: pointer;
     margin-bottom: -3.5px;
-    text-transform: uppercase;
 }
 
 .copy-button {
@@ -23,6 +23,7 @@
     font-size: 1rem;
     line-height: 30px;
     color: white;
+    text-transform: uppercase;
     border: none;
     opacity: 0;
 }
@@ -34,12 +35,13 @@
 
 .box-content {
     position: absolute;
-    padding: 10px;
     width: 100%;
-    bottom: 0px;
     left: 0px;
+    bottom: 0px;
+    padding: 10px;
     color: black;
     letter-spacing: 1px;
+    text-transform: uppercase;
     font-size: 12px;
 }
 
@@ -54,6 +56,7 @@
     height: 30px;
     text-align: center;
     line-height: 30px;
+    text-transform: uppercase;
 }
 
 .copy-overlay {
@@ -61,14 +64,14 @@
     z-index: 0;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.6s ease-in-out;
     transform: scale(0.1);
 }
 
 .copy-overlay.show {
     opacity: 1;
-    z-index: 10;
     transform: scale(50);
+    z-index: 10;
     position: absolute;
 }
 
@@ -81,11 +84,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-size: 4rem;
     transform: scale(0.1);
     opacity: 0;
     color: white;
-    flex-direction: column;
 }
 
 .copy-message.show {
@@ -104,6 +107,7 @@
     text-align: center;
     margin-bottom: 0;
     padding: 1rem;
+    text-transform: uppercase;
 }
 
 .copy-message p {
