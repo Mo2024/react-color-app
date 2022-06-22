@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import ColorBox from './ColorBox';
 import './Palette.css'
 import Navbar from './Navbar';
-import seedColors from './seedColors'
 import { useParams } from "react-router-dom";
 
 function Palette(props) {
@@ -12,7 +11,7 @@ function Palette(props) {
     let palette = props.getPalette(id)
 
     const colorBoxes = palette.colors[level].map(color => (
-        <ColorBox background={color[format]} name={color.name} key={color.id} />
+        <ColorBox background={color[format]} name={color.name} key={color.id} id={color.id} paletteId={id} showLink={true} />
     ))
 
     let changeLevel = useCallback((newLevel) => {
@@ -22,9 +21,6 @@ function Palette(props) {
     let changeFormat = useCallback((val) => {
         setFormat(val)
     })
-
-    // let palette = seedColors.find(pal => { return pal.id === id; })
-
 
     return (
         <div className='Palette'>
