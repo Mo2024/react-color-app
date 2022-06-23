@@ -3,6 +3,7 @@ import ColorBox from './ColorBox';
 import './Palette.css'
 import Navbar from './Navbar';
 import { useParams } from "react-router-dom";
+import Footer from './footer';
 
 function Palette(props) {
     const { id } = useParams();
@@ -24,14 +25,11 @@ function Palette(props) {
 
     return (
         <div className='Palette'>
-            <Navbar level={level} changeLevel={changeLevel} changeFormat={changeFormat} />
+            <Navbar level={level} changeLevel={changeLevel} changeFormat={changeFormat} showSlider={true} />
             <div className='Palette-colors'>
                 {colorBoxes}
             </div>
-            <footer className='palette-footer'>
-                {palette.paletteName}
-                <span className='emoji'>{palette.emoji}</span>
-            </footer>
+            <Footer paletteName={palette.paletteName} emoji={palette.emoji} />
         </div>
     );
 };

@@ -26,12 +26,14 @@ function Navbar(props) {
             <div className='logo'>
                 <Link to='/'>Color App</Link>
             </div>
-            <div className='slider-container'>
-                <span>Level {props.level}</span>
-                <div className='slider'>
-                    <Slider step={100} defaultValue={props.level} min={100} max={900} onAfterChange={props.changeLevel} />
+            {props.showSlider && (
+                <div className='slider-container'>
+                    <span>Level {props.level}</span>
+                    <div className='slider'>
+                        <Slider step={100} defaultValue={props.level} min={100} max={900} onAfterChange={props.changeLevel} />
+                    </div>
                 </div>
-            </div>
+            )}
             <div className='select-container'>
                 <Select value={format} onChange={handleFormatChange}>
                     <MenuItem value='hex'>HEX - #ffffff</MenuItem>
