@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ColorBox from './ColorBox';
 import Footer from './footer';
 import Navbar from './Navbar';
@@ -30,10 +30,13 @@ function SingleColorPalette(props) {
     ))
 
     return (
-        <div className='Palette'>
+        <div className='SingleColorPalette Palette'>
             <Navbar changeFormat={changeFormat} showSlider={false} />
             <div className='Palette-colors'>
                 {colorBoxes}
+                <div className="go-back ColorBox" >
+                    <Link to={`/palette/${paletteId}`} className='back-button'>Go Back</Link>
+                </div>
             </div>
             <Footer paletteName={palette.paletteName} emoji={palette.emoji} />
         </div>
