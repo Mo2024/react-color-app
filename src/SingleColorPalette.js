@@ -7,7 +7,7 @@ import './Palette.css'
 
 
 function SingleColorPalette(props) {
-    const { paletteId, colorId } = useParams();
+    const { paletteId, colorId, classes } = useParams();
     const [format, setFormat] = useState('hex')
     let palette = props.getPalette(paletteId)
     let colors = [];
@@ -26,7 +26,7 @@ function SingleColorPalette(props) {
     })
 
     const colorBoxes = colors.map(color => (
-        <ColorBox background={color[format]} name={color.name} key={color.name} showLink={false} />
+        <ColorBox background={color[format]} name={color.name} key={color.name} showingFullPalette={false} />
     ))
 
     return (
@@ -34,7 +34,7 @@ function SingleColorPalette(props) {
             <Navbar changeFormat={changeFormat} showSlider={false} />
             <div className='Palette-colors'>
                 {colorBoxes}
-                <div className="go-back ColorBox" >
+                <div className={`go-back ColorBox`} >
                     <Link to={`/palette/${paletteId}`} className='back-button'>Go Back</Link>
                 </div>
             </div>
