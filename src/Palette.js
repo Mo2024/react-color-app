@@ -12,7 +12,7 @@ function Palette(props) {
     let palette = props.getPalette(id)
 
     const colorBoxes = palette.colors[level].map(color => (
-        <ColorBox background={color[format]} name={color.name} key={color.id} id={color.id} showingFullPalette={id} showLink={true} />
+        <ColorBox background={color[format]} name={color.name} key={color.id} id={color.id} showingFullPalette={true} paletteId={id} showLink={true} />
     ))
 
     let changeLevel = useCallback((newLevel) => {

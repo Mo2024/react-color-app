@@ -63,9 +63,8 @@ const styles = {
 }
 
 function ColorBox(props) {
-    let { background, name, id, showingFullPalette, classes } = props;
+    let { background, name, id, paletteId, showingFullPalette, classes } = props;
     const [copied, setCopied] = useState(false);
-    let paletteId = showingFullPalette;
 
     let changeCopyState = useCallback(() => {
         setCopied(true)
