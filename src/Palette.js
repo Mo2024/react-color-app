@@ -4,12 +4,36 @@ import './Palette.css'
 import Navbar from './Navbar';
 import { useParams } from "react-router-dom";
 import Footer from './footer';
+import { withStyles } from "@mui/styles"
+
+const styles = {
+
+    Palette: {
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    PaletteColors: {
+        height: '90%',
+    },
+    // PaletteFooter: {
+    //     backgroundColor: "white",
+    //     height: "5vh",
+    //     display: "flex",
+    //     justifyContent: "flex-end",
+    //     alignItems: "center",
+    //     fontWeight: "bold",
+    // }
+
+}
+
 
 function Palette(props) {
     const { id } = useParams();
     const [level, setLevel] = useState(500);
     const [format, setFormat] = useState('hex')
     let palette = props.getPalette(id)
+    let classes = props.classes
 
     const colorBoxes = palette.colors[level].map(color => (
         <ColorBox background={color[format]} name={color.name} key={color.id} id={color.id} showingFullPalette={true} paletteId={id} showLink={true} />
@@ -24,9 +48,9 @@ function Palette(props) {
     })
 
     return (
-        <div className='Palette'>
+        <div className={classes.Palette}>
             <Navbar level={level} changeLevel={changeLevel} changeFormat={changeFormat} showSlider={true} />
-            <div className='Palette-colors'>
+            <div className={classes.PaletteColors}>
                 {colorBoxes}
             </div>
             <Footer paletteName={palette.paletteName} emoji={palette.emoji} />
@@ -34,4 +58,4 @@ function Palette(props) {
     );
 };
 
-export default Palette;
+export default withStyles(styles)(Palette);
