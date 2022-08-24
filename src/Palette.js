@@ -5,28 +5,7 @@ import Navbar from './Navbar';
 import { useParams } from "react-router-dom";
 import Footer from './footer';
 import { withStyles } from "@mui/styles"
-
-const styles = {
-
-    Palette: {
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    PaletteColors: {
-        height: '90%',
-    },
-    // PaletteFooter: {
-    //     backgroundColor: "white",
-    //     height: "5vh",
-    //     display: "flex",
-    //     justifyContent: "flex-end",
-    //     alignItems: "center",
-    //     fontWeight: "bold",
-    // }
-
-}
-
+import styles from './styles/PaletteStyles'
 
 function Palette(props) {
     const { id } = useParams();
